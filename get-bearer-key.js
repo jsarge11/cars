@@ -1,12 +1,5 @@
-const puppeteer = require('puppeteer-extra');
-const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-puppeteer.use(StealthPlugin());
-require('dotenv').config();
-
-const { CHROMIUM_PATH } = process.env;
-
+const puppeteer = require('puppeteer');
 const url = 'https://www.bmwusa.com/certified-preowned-search.html#/results';
-
 
 const type = async (page, selector, text) => {
     const el = await page.waitForSelector(selector);
@@ -24,8 +17,7 @@ const getKey = async () => {
             '--disable-features=IsolateOrigins',
             '--disable-site-isolation-trials',
             '--disable-features=BlockInsecurePrivateNetworkRequests.',
-        ],
-        executablePath: CHROMIUM_PATH
+        ]
     });
     
     const [page] = await browser.pages();
@@ -47,7 +39,6 @@ const getKey = async () => {
     await go.click();
 
     setTimeout(() => {
-        console.log('closing');
         browser.close();
     }, 5000);
     

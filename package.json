@@ -12,8 +12,6 @@
     "axios": "^1.2.1",
     "dotenv": "^16.0.3",
     "puppeteer": "^19.4.0",
-    "puppeteer-extra": "^3.3.4",
-    "puppeteer-extra-plugin-stealth": "^2.11.1",
     "sib-api-v3-sdk": "^8.4.2"
   },
   "devDependencies": {
