@@ -28,4 +28,5 @@ const sendVehiclesEmail = async () => {
 	}
 };
 
+sendVehiclesEmail();
 setInterval(() => sendVehiclesEmail(), 4.32e+7);

@@ -1,7 +1,9 @@
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-
 puppeteer.use(StealthPlugin());
+require('dotenv').config();
+
+const { CHROMIUM_PATH } = process.env;
 
 const url = 'https://www.bmwusa.com/certified-preowned-search.html#/results';
 
@@ -23,7 +25,7 @@ const getKey = async () => {
             '--disable-site-isolation-trials',
             '--disable-features=BlockInsecurePrivateNetworkRequests.',
         ],
-        executablePath: '/usr/local/bin/chromium' 
+        executablePath: CHROMIUM_PATH
     });
     
     const [page] = await browser.pages();
